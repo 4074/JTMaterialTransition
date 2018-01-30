@@ -70,7 +70,7 @@ open class JTMaterialTransition: NSObject, UIViewControllerAnimatedTransitioning
                               options: [],
                               animations: {
                                 animatedViewForTransition.transform = finalTransform
-                                animatedViewForTransition.center = transitionContext.containerView.center
+                                // animatedViewForTransition.center = transitionContext.containerView.center
                                 animatedViewForTransition.backgroundColor = presentedController.view.backgroundColor
             },
                               completion: { (_) in
@@ -88,7 +88,7 @@ open class JTMaterialTransition: NSObject, UIViewControllerAnimatedTransitioning
         }
         else {
             animatedViewForTransition.transform = finalTransform
-            animatedViewForTransition.center = transitionContext.containerView.center
+            // animatedViewForTransition.center = transitionContext.containerView.center
             animatedViewForTransition.backgroundColor = presentedController.view.backgroundColor
             
             UIView.animate(withDuration: self.transitionDuration(using: transitionContext) * 0.7, animations: {
