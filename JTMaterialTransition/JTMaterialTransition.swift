@@ -59,8 +59,15 @@ open class JTMaterialTransition: NSObject, UIViewControllerAnimatedTransitioning
         transitionContext.containerView.addSubview(presentedController.view)
         
         
-        let size = max(transitionContext.containerView.frame.height, transitionContext.containerView.frame.width) * 1.2
-        let scaleFactor = size / animatedViewForTransition.frame.width
+        var size: CGFloat = 0
+        var scaleFactor: CGFloat = 0
+        if transitionContext.containerView.frame.height > transitionContext.containerView.frame.width {
+            size = transitionContext.containerView.frame.height * 2
+            scaleFactor = size / animatedViewForTransition.frame.height
+        } else {
+            size = transitionContext.containerView.frame.width * 2
+            scaleFactor = size / animatedViewForTransition.frame.width
+        }
         let finalTransform = CGAffineTransform(scaleX: scaleFactor, y: scaleFactor)
         
         
